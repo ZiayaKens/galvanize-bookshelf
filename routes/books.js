@@ -39,7 +39,7 @@ router.get('/books', function(req, res, next){
 });
 
 router.get('/books/:id', function(req, res, next){
-  console.log();
+
   knex.select().from('books').where({id: req.params.id}).then(function(table){
     var entry ={};
     for(let key in table[0]){
@@ -95,10 +95,8 @@ router.patch('/books/:id', function (req, res, next){
 });
 
 router.delete('/books/:id', function(req, res, next){
-  console.log(req.params.id);
-
   knex.select().from('books').where({id: req.params.id}).then(function(table){    // gatta read the table so i can send back what we deleted
-    // console.log(table);
+
     var entry ={};                                                        // gatta reformat the table keys so they look how we want
     for(let key in table[0]){
       if(key == 'cover_url'){
@@ -124,9 +122,7 @@ router.delete('/books/:id', function(req, res, next){
 
 
 
-router.use(function(err){
-  console.error('crap');
-});
+
 
 
 module.exports = router;

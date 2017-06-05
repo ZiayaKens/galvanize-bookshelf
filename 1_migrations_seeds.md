@@ -47,7 +47,7 @@ The tests will not pass, but if you cannot connect to the test database, you'll 
 
 ```text
 Knex:warning - Pool2 - Error: Pool was destroyed
-Knex:Error Pool2 - error: database "bookshelf_tes" does not exist
+Knex:Error Pool2 - error: database "bookshelf_test" does not exist
 ```
 
 ## Migrations
