@@ -41,7 +41,7 @@ router.get('/books', function(req, res, next){
 router.get('/books/:id', function(req, res, next){
 
   knex.select().from('books').where({id: req.params.id}).then(function(table){
-    var entry ={};
+    var entry = {}
     for(let key in table[0]){
       if(key == 'cover_url'){
         let hump = humps.camelize(key)
