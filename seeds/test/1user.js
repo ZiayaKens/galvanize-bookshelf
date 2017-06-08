@@ -10,5 +10,7 @@ exports.seed = function(knex, Promise) {
         // Inserts seed entries
         knex('users').insert(info)
       ]);
-    });
+    }).then(function(){
+      return knex.raw("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users))")
+    });;
 };

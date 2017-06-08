@@ -89,5 +89,7 @@ exports.seed = function(knex, Promise) {
           updated_at: booksdata[7]['updated_at']
         })
       ]);
-    });
+    }).then(function(){
+      return knex.raw("SELECT setval('books_id_seq', (SELECT MAX(id) FROM books))")
+    });;
 };
